@@ -3,7 +3,7 @@
 Bu proje, kampüs içerisindeki etkinliklerin takip edilmesini ve yeni etkinlikler planlanmasını sağlayan web uygulamasının ilk sprint (prototip) aşamasıdır. Tasarımda CSS veya JavaScript kullanılmamış olup, tamamen semantik HTML etiketleri ve tarayıcı varsayılan stilleri ile oluşturulmuştur.
 
 ## 🚀 Canlı Ön İzleme
-**Vercel Adresi:** [https://vercel.com/tarikbaskan/web-design]
+**Vercel Adresi:** [https://web-design-seven-tau.vercel.app/]
 
 ## 📁 Sayfa Yapısı
 Proje, ortak bir iskelet (header, nav, main, footer) kullanan 5 temel HTML sayfasından oluşmaktadır:
