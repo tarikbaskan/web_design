@@ -1,0 +1,148 @@
+
+:root {
+  --no: 2416501012;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: Tahoma, sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+body { 
+  font-family: var(--font); 
+  background-color: var(--renk-zemin);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+/* Etkinlik Kartları (Grid Düzeni) */
+.etkinlik-listesi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--bosluk-m);
+  padding: var(--bosluk-m);
+}
+
+.etkinlik-kart {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.etkinlik-kart h3 {
+  margin-top: 0;
+  color: var(--renk-ana);
+}
+
+.etkinlik-kart p {
+  margin: 5px 0;
+}
+
+.etkinlik-kart a {
+  margin-top: auto;
+  text-decoration: none;
+  color: var(--renk-ana);
+  font-weight: bold;
+}
+
+.etkinlik-kart a:hover {
+  text-decoration: underline;
+}
+/* Başlık ve Menü (Nav) */
+header {
+  padding: var(--bosluk-m);
+  background-color: white;
+}
+header h1 {
+  margin: 0;
+  color: var(--renk-ana);
+}
+nav {
+  background-color: var(--renk-ana);
+  padding: 10px var(--bosluk-m);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Ana İçerik Boşluğu */
+main {
+  padding: var(--bosluk-m);
+}
+
+/* Detay Sayfası (Afiş ve Künye Yan Yana) */
+article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+figure {
+  margin: 0;
+  flex: 1 1 300px; /* Telefonda tam genişlik, PC'de 300px */
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--kose);
+}
+dl {
+  flex: 2 1 300px;
+  margin: 0;
+}
+dt {
+  font-weight: bold;
+  color: var(--renk-ana);
+  margin-top: 15px;
+}
+dd {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+/* Form Tasarımı (Ekle / Güncelle Sayfaları) */
+form {
+  background: white;
+  padding: var(--bosluk-m);
+  border-radius: var(--kose);
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+button {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  opacity: 0.9;
+}
