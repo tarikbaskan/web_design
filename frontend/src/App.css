@@ -24,19 +24,24 @@ body {
   padding: 0;
 }
 
-/* Başlık ve Menü */
+/* Başlık ve Menü
+   Sprint 5'te Header ve Navigation ayrı bileşen (kardeş etiket). Ekranda tek mor
+   blok gibi görünsünler diye ikisi de aynı zemini kullanır; header'ın alt boşluğu
+   yok, o boşluk menüde. */
 header {
   background-color: var(--renk-ana);
   color: white;
-  padding: var(--bosluk-m);
+  padding: var(--bosluk-m) var(--bosluk-m) 0;
 }
 header h1 { margin: 0 0 .25rem; }
 header p { margin: 0 0 .75rem; font-size: .9rem; }
+header > :last-child { margin-bottom: 0; }
 nav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: .75rem;
+  background-color: var(--renk-ana);
+  padding: .75rem var(--bosluk-m) var(--bosluk-m);
 }
 nav a {
   color: white;
@@ -141,7 +146,7 @@ button:hover, .buton:hover { opacity: .9; }
   .filtre label[for="arama"] { grid-column: 1; grid-row: 1; }
   .filtre #arama { grid-column: 1; grid-row: 2; }
 }
-#sonuc { font-weight: bold; color: var(--renk-ana); }
+.sonuc { font-weight: bold; color: var(--renk-ana); }
 
 /* Detay sayfası (afiş ve künye yan yana) */
 .detay {
