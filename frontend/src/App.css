@@ -5,10 +5,12 @@
   --renk-zemin: hsl(var(--ton) 30% 97%);
   --renk-acik: hsl(var(--ton) 40% 93%);
   --font: Tahoma, sans-serif;
+  --bosluk-s: 0.5rem;
   --bosluk-m: 1rem;
   --kose: 8px;
   --cizgi: #ccc;
   --hata: #b3261e;
+  --renk-hata: #b3261e;
   --hata-zemin: #fff4f3;
   --basari: #1b6e2f;
   --basari-zemin: #f2faf4;
@@ -25,7 +27,7 @@ body {
 }
 
 /* Başlık ve Menü
-   Sprint 5'te Header ve Navigation ayrı bileşen (kardeş etiket). Ekranda tek mor
+   Header ve Navigation ayrı bileşen (kardeş etiket). Ekranda tek renkli
    blok gibi görünsünler diye ikisi de aynı zemini kullanır; header'ın alt boşluğu
    yok, o boşluk menüde. */
 header {
@@ -61,6 +63,9 @@ main {
   padding: var(--bosluk-m);
   max-width: 1000px;
   margin: 0 auto;
+}
+.bolum-baslik {
+  margin-top: 0;
 }
 footer {
   text-align: center;
@@ -207,7 +212,7 @@ input, select, textarea {
   font-family: inherit;
   font-size: 1rem;
 }
-.alan-hata {
+.alan-hata, .hata-metni {
   display: block;
   min-height: 1.1rem;
   margin-bottom: 12px;
@@ -220,7 +225,7 @@ input, select, textarea {
 }
 
 /* Mesaj kutuları */
-.hata-kutusu {
+.hata-kutusu, .mesaj-hata {
   background: var(--hata-zemin);
   border: 1px solid var(--hata);
   color: var(--hata);
@@ -228,7 +233,7 @@ input, select, textarea {
   padding: var(--bosluk-m);
   margin: var(--bosluk-m) 0;
 }
-.basari-kutusu {
+.basari-kutusu, .mesaj-basari {
   background: var(--basari-zemin);
   border: 1px solid var(--basari);
   color: var(--basari);
@@ -245,5 +250,72 @@ input, select, textarea {
 }
 #form-mesaj:empty { display: none; }
 
-/* React formu: alanlar arası boşluk */
-form.form input, form.form select, form.form textarea { margin-bottom: 15px; }
+.alt-linkler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.alt-linkler a {
+  color: var(--renk-ana);
+  font-size: 0.9rem;
+}
+
+/* Yönetim Tablosu (Adım 13: Masaüstünde tablo, telefonda kart) */
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+.tablo th,
+.tablo td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--cizgi);
+}
+.tablo th {
+  background: var(--renk-ana);
+  color: #fff;
+}
+.islemler {
+  display: flex;
+  gap: var(--bosluk-s);
+}
+.buton-sil {
+  background: var(--renk-hata);
+}
+
+@media (max-width: 699px) {
+  .tablo {
+    background: transparent;
+  }
+  .tablo thead {
+    display: none;
+  }
+  .tablo,
+  .tablo tbody {
+    display: block;
+  }
+  .tablo tr {
+    display: block;
+    background: white;
+    border: 1px solid var(--cizgi);
+    border-radius: var(--kose);
+    padding: var(--bosluk-m);
+    margin-bottom: var(--bosluk-m);
+  }
+  .tablo td {
+    display: block;
+    padding: 4px 0;
+    border-bottom: none;
+  }
+  .tablo td.islemler {
+    display: flex;
+    margin-top: 8px;
+  }
+  .tablo td[data-baslik]::before {
+    content: attr(data-baslik) ": ";
+    font-weight: 700;
+  }
+}
