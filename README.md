@@ -1,10 +1,33 @@
-# Kampüs Etkinlikleri — Sprint 6 ve Vize Teslimi (Router, Context ve Yönetim)
+# Kampüs Etkinlikleri — Sprint 7 (Express ile REST API ve React Frontend)
 
-## Canlı Vercel Adresi
+Aynı repoda iki uygulama:
+* **`frontend/`**: React + Vite (port `5173`) — Etkinlikleri gösteren arayüz uygulaması
+* **`backend/`**: Node.js + Express (port `3000`) — Etkinlikleri JSON olarak sunan REST API sunucusu
+
+## Canlı Vercel Adresi (Frontend)
 * **Canlı Adres:** [https://tarikbaskan-frontend.vercel.app](https://tarikbaskan-frontend.vercel.app)
 
-## Kurulum ve Çalıştırma
-Projeyi yerel ortamda çalıştırmak için `frontend` klasöründe aşağıdaki komutları uygulayın:
+## Backend Kurulum ve Çalıştırma (`backend/`)
+
+```bash
+cd backend
+npm install
+cp .env.example .env
+npm run dev      # http://localhost:3000
+```
+
+### REST Sözleşmesi (`backend/`)
+
+| Method | Endpoint | Amaç | Başarılı | Hata | Durum |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| GET | `/health` | Sunucu sağlık kontrolü | 200 | — | Bu sprint |
+| GET | `/events` | Listeyi getir | 200 | — | Bu sprint |
+| GET | `/events/:id` | Tek etkinlik | 200 | 404 | Bu sprint |
+| POST | `/events` | Yeni etkinlik | 201 | 400 | Bu sprint |
+| PATCH | `/events/:id` | Güncelle | 200 | 400, 404 | Sprint 9 |
+| DELETE | `/events/:id` | Sil | 204 | 404 | Sprint 9 |
+
+## Frontend Kurulum ve Çalıştırma (`frontend/`)
 
 ```bash
 cd frontend
@@ -18,39 +41,24 @@ npm run build    # tsc -b && vite build
 npm run preview
 ```
 
-## Route Listesi (10 Adres, 10 Sayfa)
+## Repo Yapısı
 
-| Adres | Sayfa Bileşeni | Açıklama |
-| :--- | :--- | :--- |
-| `/` | `HomePage` | Ana sayfa (yaklaşan 2 etkinlik listesi) |
-| `/events` | `EventsPage` | Tüm etkinlikler, metin arama ve kategori filtreleme |
-| `/events/:id` | `EventDetailPage` | Etkinlik detay sayfası (`useParams` ile `id` okuma) |
-| `/admin` | `AdminPage` | Yönetim paneli (masaüstünde tablo, mobilde kart görünümü, silme onayı) |
-| `/admin/new` | `AddEventPage` | Yeni etkinlik ekleme sayfası (`EventForm` + `validateEvent`) |
-| `/admin/:id/edit` | `EditEventPage` | Mevcut etkinliği güncelleme sayfası (`EventForm` + `validateEvent`) |
-| `/login` | `LoginPage` | Giriş yap sayfası (controlled form ve doğrulama) |
-| `/register` | `RegisterPage` | Kayıt ol sayfası (controlled form ve şifre tekrar kontrolü) |
-| `/forgot-password` | `ForgotPasswordPage` | Şifremi unuttum sayfası (e-posta doğrulama ve demo mesajı) |
-| `*` | `NotFoundPage` | Bulunamayan adresler veya geçersiz etkinlik ID'leri için 404 sayfası |
-
-## Klasör Yapısı (`frontend/src`)
 ```
-frontend/
-  src/
-    components/
-      layout/   Header.tsx  Navigation.tsx  Footer.tsx
-      events/   EventCard.tsx  EventList.tsx  EventFilter.tsx  EventDetail.tsx
-      forms/    EventForm.tsx
-    context/    EventsContext.tsx
-    pages/
-      HomePage.tsx  EventsPage.tsx  EventDetailPage.tsx
-      AdminPage.tsx  AddEventPage.tsx  EditEventPage.tsx
-      LoginPage.tsx  RegisterPage.tsx  ForgotPasswordPage.tsx
-      NotFoundPage.tsx
-    data/       events.ts
-    types/      campus-event.ts
-    utils/      filter-events.ts  format-date.ts  validate-event.ts
-    App.tsx  App.css  index.css  main.tsx
+web_design/
+  frontend/
+  backend/
+    src/
+      app.js
+      server.js
+      routes/event-routes.js
+      controllers/event-controller.js
+      data/events.js
+    requests/kampus-api.json
+    .env.example
+    .gitignore
+    package.json
+    README.md
+  README.md
 ```
 
 ## Geliştirici
