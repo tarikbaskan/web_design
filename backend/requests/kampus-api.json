@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "b4e8c920-7d1a-4f3b-9e6c-241650101207",
     "name": "Kampüs API",
-    "description": "Sprint 7 Express ile REST API Postman Test Koleksiyonu (6 İstek)",
+    "description": "Sprint 8 MongoDB ve Mongoose Kalıcı Veri Postman Test Koleksiyonu (6 İstek)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -50,7 +50,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/event-2",
+          "raw": "http://localhost:3000/events/6af57fce53e93a0dbc80ecdd",
           "protocol": "http",
           "host": [
             "localhost"
@@ -58,7 +58,7 @@
           "port": "3000",
           "path": [
             "events",
-            "event-2"
+            "6af57fce53e93a0dbc80ecdd"
           ]
         }
       },
@@ -97,7 +97,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"capacity\": 30,\n  \"date\": \"2026-12-01\",\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
+          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-01\",\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"capacity\": 30,\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
           "options": {
             "raw": {
               "language": "json"
