@@ -1,6 +1,6 @@
-# Kampüs Etkinlikleri — Backend REST API (Sprint 8: MongoDB ve Mongoose)
+# Kampüs Etkinlikleri — Backend REST API (Sprint 9: Tam CRUD, Arama ve Yaklaşan Etkinlikler)
 
-Node.js, Express ve Mongoose kullanılarak geliştirilmiş, kampüs etkinliklerini MongoDB veritabanında kalıcı olarak saklayan ve JSON formatında sunan REST API sunucusu.
+Node.js, Express ve Mongoose kullanılarak geliştirilmiş, kampüs etkinliklerini MongoDB veritabanında kalıcı olarak saklayan ve tam CRUD, arama/filtreleme ile yaklaşan etkinlik sorgularını sunan REST API sunucusu.
 
 ## Kurulum ve Çalıştırma
 
@@ -10,7 +10,7 @@ Projeyi yerel ortamda çalıştırmak için `backend` klasöründe aşağıdaki 
 cd backend
 npm install
 cp .env.example .env
-npm run seed     # Örnek 6 etkinliği veritabanına yükler
+npm run seed     # Örnek 6 etkinliği veritabanına yükler (en az 2'si geçmiş tarihli)
 npm run dev      # http://localhost:3000 (dosya değişince yeniden başlar)
 ```
 
@@ -42,7 +42,7 @@ Sunucunun ayakta olduğunu kontrol etmek için:
 ```json
 {
   "status": "ok",
-  "time": "2026-11-18T09:30:00.000Z",
+  "time": "2026-11-25T09:30:00.000Z",
   "student": "2416501012"
 }
 ```
@@ -51,17 +51,22 @@ Sunucunun ayakta olduğunu kontrol etmek için:
 
 | Method | Endpoint | Amaç | Başarılı | Hata | Durum |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| GET | `/events` | Listeyi getir | 200 | — | Bu sprint |
-| GET | `/events/:id` | Tek etkinlik (`_id`) | 200 | 404 | Bu sprint |
-| POST | `/events` | Yeni etkinlik | 201 | 400 | Bu sprint |
-| PATCH | `/events/:id` | Güncelle | 200 | 400, 404 | Sprint 9 |
-| DELETE | `/events/:id` | Sil | 204 | 404 | Sprint 9 |
+| GET | `/health` | Sunucu sağlık kontrolü | 200 | — | çalışıyor |
+| GET | `/events` | Listeyi getir (`?search=` & `?category=`) | 200 | — | çalışıyor |
+| GET | `/events/upcoming` | Yaklaşan etkinlikler (tarihe göre sıralı) | 200 | — | çalışıyor |
+| GET | `/events/:id` | Tek etkinlik (`_id`) | 200 | 404 | çalışıyor |
+| POST | `/events` | Yeni etkinlik | 201 | 400 | çalışıyor |
+| PATCH | `/events/:id` | Güncelle (güncel kayıt döner) | 200 | 400, 404 | çalışıyor |
+| DELETE | `/events/:id` | Sil (gövde yok) | 204 | 404 | çalışıyor |
+
+* **Tarih Biçimi:** API'de her yerde `"GG-AA-YYYY"` (ör. `"15-10-2026"`), veritabanında gerçek `Date` olarak saklanır.
+* **Geçersiz veya olmayan `_id`:** Her yerde `404` döner.
 
 ### Status Code'lar
 * `200` tamam
 * `201` oluşturuldu
-* `204` içerik yok
-* `400` eksik/yanlış veri (`ValidationError`)
+* `204` içerik yok (gövde yok)
+* `400` eksik/yanlış veri (`ValidationError`, `CastError`, boş gövde veya korunan alan)
 * `404` bulunamadı (geçersiz veya olmayan `_id`)
 * `500` beklenmeyen sunucu hatası
 
@@ -75,6 +80,16 @@ Bütün hatalar aynı JSON biçiminde döner:
 }
 ```
 
+## Testler (Postman & Newman)
+
+Backend açıkken (`npm run seed` ve `npm run dev` sonrası):
+
+```bash
+newman run https://webdersi.vercel.app/test.json
+```
+
+Postman Collection Runner sonuçları `backend/requests/run-results.json` olarak dışa aktarılır.
+
 ## Klasör Yapısı
 
 ```
@@ -82,6 +97,8 @@ backend/
   src/
     config/
       database.js
+    utils/
+      date.js
     models/
       event-model.js
     data/
@@ -95,6 +112,7 @@ backend/
       event-controller.js
   requests/
     kampus-api.json
+    run-results.json
   .env.example
   .gitignore
   package.json

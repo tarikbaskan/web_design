@@ -1,8 +1,8 @@
-# Kampüs Etkinlikleri — Sprint 8 (MongoDB ve Mongoose ile Kalıcı Veri)
+# Kampüs Etkinlikleri — Sprint 9 (Tam CRUD, Arama ve Yaklaşan Etkinlikler)
 
 Aynı repoda iki uygulama:
 * **`frontend/`**: React + Vite (port `5173`) — Etkinlikleri gösteren arayüz uygulaması
-* **`backend/`**: Node.js + Express + Mongoose (port `3000`) — Etkinlikleri MongoDB üzerinde kalıcı olarak tutan REST API sunucusu
+* **`backend/`**: Node.js + Express + Mongoose (port `3000`) — Etkinlikleri MongoDB üzerinde kalıcı olarak tutan, tam CRUD ve sorgu destekli REST API sunucusu
 
 ## Canlı Vercel Adresi (Frontend)
 * **Canlı Adres:** [https://tarikbaskan-frontend.vercel.app](https://tarikbaskan-frontend.vercel.app)
@@ -13,7 +13,7 @@ Aynı repoda iki uygulama:
 cd backend
 npm install
 cp .env.example .env
-npm run seed     # Veritabanına 6 örnek etkinlik ekler
+npm run seed     # Veritabanına 6 örnek etkinlik ekler (en az 2'si geçmiş tarihli)
 npm run dev      # http://localhost:3000
 ```
 
@@ -21,12 +21,13 @@ npm run dev      # http://localhost:3000
 
 | Method | Endpoint | Amaç | Başarılı | Hata | Durum |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| GET | `/health` | Sunucu sağlık kontrolü | 200 | — | Aktif |
-| GET | `/events` | Listeyi getir (MongoDB) | 200 | — | Bu sprint |
-| GET | `/events/:id` | Tek etkinlik (`_id`) | 200 | 404 | Bu sprint |
-| POST | `/events` | Yeni etkinlik (Schema doğrulamalı) | 201 | 400 | Bu sprint |
-| PATCH | `/events/:id` | Güncelle | 200 | 400, 404 | Sprint 9 |
-| DELETE | `/events/:id` | Sil | 204 | 404 | Sprint 9 |
+| GET | `/health` | Sunucu sağlık kontrolü | 200 | — | çalışıyor |
+| GET | `/events` | Listeyi getir (`?search=` & `?category=`) | 200 | — | çalışıyor |
+| GET | `/events/upcoming` | Yaklaşan etkinlikler (tarihe göre sıralı) | 200 | — | çalışıyor |
+| GET | `/events/:id` | Tek etkinlik (`_id`) | 200 | 404 | çalışıyor |
+| POST | `/events` | Yeni etkinlik (Schema doğrulamalı) | 201 | 400 | çalışıyor |
+| PATCH | `/events/:id` | Güncelle | 200 | 400, 404 | çalışıyor |
+| DELETE | `/events/:id` | Sil | 204 | 404 | çalışıyor |
 
 ## Frontend Kurulum ve Çalıştırma (`frontend/`)
 
@@ -50,6 +51,7 @@ web_design/
   backend/
     src/
       config/database.js
+      utils/date.js
       models/event-model.js
       data/seed-events.js
       seed.js
@@ -57,7 +59,9 @@ web_design/
       server.js
       routes/event-routes.js
       controllers/event-controller.js
-    requests/kampus-api.json
+    requests/
+      kampus-api.json
+      run-results.json
     .env.example
     .gitignore
     package.json
