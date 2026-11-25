@@ -1,0 +1,742 @@
+{
+	"id": "05791756-97a1-4ab4-be4b-5c116fb11752",
+	"name": "Kampüs API · Sprint 9",
+	"timestamp": "2026-11-25T07:22:23.592Z",
+	"collection_id": "60275440-75aad2b8-6d44-4d3f-90e2-9884a47ce4c5",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 45,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-11-25T07:22:17.003Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "9a0d1ee1-573f-44c2-806e-dd5caf49bbd7",
+			"name": "01 Health",
+			"url": "http://localhost:3000/health",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"status ok": true,
+				"student dolu": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"status ok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"student dolu": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"status ok": true,
+					"student dolu": true
+				}
+			]
+		},
+		{
+			"id": "6ef6395b-fd0e-4156-a551-27bd493fcd03",
+			"name": "02 Etkinlik listesi",
+			"url": "http://localhost:3000/events",
+			"time": 1009,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"en az 6 kayıt": true,
+				"tarihler GG-AA-YYYY": true,
+				"_id ve createdAt var": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"en az 6 kayıt": {
+					"pass": 1,
+					"fail": 0
+				},
+				"tarihler GG-AA-YYYY": {
+					"pass": 1,
+					"fail": 0
+				},
+				"_id ve createdAt var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1009
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"en az 6 kayıt": true,
+					"tarihler GG-AA-YYYY": true,
+					"_id ve createdAt var": true
+				}
+			]
+		},
+		{
+			"id": "e6e18cde-c32e-49ae-8419-2a70f8bde5c3",
+			"name": "03 Tek etkinlik",
+			"url": "http://localhost:3000/events/6b068b5ef4f69d7d3b0f8459",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"doğru kayıt": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"doğru kayıt": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"doğru kayıt": true
+				}
+			]
+		},
+		{
+			"id": "723d97d6-9278-4332-82ee-9348ea68dcfa",
+			"name": "04 Olmayan etkinlik (404)",
+			"url": "http://localhost:3000/events/yok",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"status 404": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"status 404": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "c9b6f687-2202-40f6-bed9-b5099b8b686c",
+			"name": "05 Etkinlik oluştur (201)",
+			"url": "http://localhost:3000/events",
+			"time": 470,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status 201": true,
+				"_id döndü": true,
+				"tarih 20-12-2026": true
+			},
+			"testPassFailCounts": {
+				"status 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"_id döndü": {
+					"pass": 1,
+					"fail": 0
+				},
+				"tarih 20-12-2026": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				470
+			],
+			"allTests": [
+				{
+					"status 201": true,
+					"_id döndü": true,
+					"tarih 20-12-2026": true
+				}
+			]
+		},
+		{
+			"id": "11272ca2-417f-482f-bc0c-cdab6d030c9c",
+			"name": "06 Eksik veri (400)",
+			"url": "http://localhost:3000/events",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status 400": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"status 400": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "2e596270-deba-40ef-84a2-8f79d83fce4e",
+			"name": "07 Yanlış tarih biçimi (400)",
+			"url": "http://localhost:3000/events",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status 400": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"status 400": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "e40a0824-a162-4359-a963-1ed85fe48daa",
+			"name": "08 Güncelle (200)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 246,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"capacity 55": true,
+				"diğer alanlar değişmedi": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"capacity 55": {
+					"pass": 1,
+					"fail": 0
+				},
+				"diğer alanlar değişmedi": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				246
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"capacity 55": true,
+					"diğer alanlar değişmedi": true
+				}
+			]
+		},
+		{
+			"id": "1b22f467-ba4d-4b40-b56a-c37e928bec05",
+			"name": "09 Tarih güncelle (200)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 654,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"tarih 25-12-2026": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"tarih 25-12-2026": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				654
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"tarih 25-12-2026": true
+				}
+			]
+		},
+		{
+			"id": "1b6c44b8-ffbc-4f3a-987d-a3b614f7be35",
+			"name": "10 Boş body (400)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status 400": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"status 400": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "ef35d1a5-14fb-40d4-9925-8d70a115213e",
+			"name": "11 Geçersiz kategori (400)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status 400": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"status 400": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "582f2a88-63b0-485e-8554-f319f8f30e15",
+			"name": "12 _id değiştirme (400)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"status 400": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"status 400": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "94b7d5e1-cb86-4a80-8e6a-98f76bb49e42",
+			"name": "13 Olmayan id güncelle (404)",
+			"url": "http://localhost:3000/events/yok",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"status 404": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"status 404": true,
+					"hata mesajı var": true
+				}
+			]
+		},
+		{
+			"id": "e0dfb029-ae35-4ab4-8f9c-73e74f276ce0",
+			"name": "14 Arama",
+			"url": "http://localhost:3000/events?search=at%C3%B6lye",
+			"time": 738,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"en az 1 sonuç": true,
+				"hepsinin başlığında atölye": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"en az 1 sonuç": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hepsinin başlığında atölye": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				738
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"en az 1 sonuç": true,
+					"hepsinin başlığında atölye": true
+				}
+			]
+		},
+		{
+			"id": "305e203b-a339-4e7d-a2d3-b0ec97bb3e1f",
+			"name": "15 Arama + kategori",
+			"url": "http://localhost:3000/events?search=at%C3%B6lye&category=At%C3%B6lye",
+			"time": 548,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"hepsi Atölye kategorisinde": true,
+				"hepsinin başlığında atölye": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hepsi Atölye kategorisinde": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hepsinin başlığında atölye": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				548
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"hepsi Atölye kategorisinde": true,
+					"hepsinin başlığında atölye": true
+				}
+			]
+		},
+		{
+			"id": "5d0492f8-a41d-4957-9435-bf0529822df4",
+			"name": "16 Yaklaşan etkinlikler",
+			"url": "http://localhost:3000/events/upcoming",
+			"time": 292,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status 200": true,
+				"geçmiş tarihli yok": true,
+				"en yakın önce": true,
+				"seed'deki geçmiş etkinlikler elendi": true
+			},
+			"testPassFailCounts": {
+				"status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"geçmiş tarihli yok": {
+					"pass": 1,
+					"fail": 0
+				},
+				"en yakın önce": {
+					"pass": 1,
+					"fail": 0
+				},
+				"seed'deki geçmiş etkinlikler elendi": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				292
+			],
+			"allTests": [
+				{
+					"status 200": true,
+					"geçmiş tarihli yok": true,
+					"en yakın önce": true,
+					"seed'deki geçmiş etkinlikler elendi": true
+				}
+			]
+		},
+		{
+			"id": "4a83970a-4c3a-43f1-bd96-abe48396e202",
+			"name": "17 Sil (204)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 177,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"status 204": true,
+				"gövde boş": true
+			},
+			"testPassFailCounts": {
+				"status 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"gövde boş": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				177
+			],
+			"allTests": [
+				{
+					"status 204": true,
+					"gövde boş": true
+				}
+			]
+		},
+		{
+			"id": "45c791b9-b0e4-450b-ba97-9f94a1a1dcf9",
+			"name": "18 Tekrar sil (404)",
+			"url": "http://localhost:3000/events/6b068caa839eb66806a70f2d",
+			"time": 426,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"status 404": true,
+				"hata mesajı var": true
+			},
+			"testPassFailCounts": {
+				"status 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"hata mesajı var": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				426
+			],
+			"allTests": [
+				{
+					"status 404": true,
+					"hata mesajı var": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4814,
+	"collection": {
+		"requests": [
+			{
+				"id": "9a0d1ee1-573f-44c2-806e-dd5caf49bbd7",
+				"method": "GET"
+			},
+			{
+				"id": "6ef6395b-fd0e-4156-a551-27bd493fcd03",
+				"method": "GET"
+			},
+			{
+				"id": "e6e18cde-c32e-49ae-8419-2a70f8bde5c3",
+				"method": "GET"
+			},
+			{
+				"id": "723d97d6-9278-4332-82ee-9348ea68dcfa",
+				"method": "GET"
+			},
+			{
+				"id": "c9b6f687-2202-40f6-bed9-b5099b8b686c",
+				"method": "POST"
+			},
+			{
+				"id": "11272ca2-417f-482f-bc0c-cdab6d030c9c",
+				"method": "POST"
+			},
+			{
+				"id": "2e596270-deba-40ef-84a2-8f79d83fce4e",
+				"method": "POST"
+			},
+			{
+				"id": "e40a0824-a162-4359-a963-1ed85fe48daa",
+				"method": "PATCH"
+			},
+			{
+				"id": "1b22f467-ba4d-4b40-b56a-c37e928bec05",
+				"method": "PATCH"
+			},
+			{
+				"id": "1b6c44b8-ffbc-4f3a-987d-a3b614f7be35",
+				"method": "PATCH"
+			},
+			{
+				"id": "ef35d1a5-14fb-40d4-9925-8d70a115213e",
+				"method": "PATCH"
+			},
+			{
+				"id": "582f2a88-63b0-485e-8554-f319f8f30e15",
+				"method": "PATCH"
+			},
+			{
+				"id": "94b7d5e1-cb86-4a80-8e6a-98f76bb49e42",
+				"method": "PATCH"
+			},
+			{
+				"id": "e0dfb029-ae35-4ab4-8f9c-73e74f276ce0",
+				"method": "GET"
+			},
+			{
+				"id": "305e203b-a339-4e7d-a2d3-b0ec97bb3e1f",
+				"method": "GET"
+			},
+			{
+				"id": "5d0492f8-a41d-4957-9435-bf0529822df4",
+				"method": "GET"
+			},
+			{
+				"id": "4a83970a-4c3a-43f1-bd96-abe48396e202",
+				"method": "DELETE"
+			},
+			{
+				"id": "45c791b9-b0e4-450b-ba97-9f94a1a1dcf9",
+				"method": "DELETE"
+			}
+		]
+	}
+}
